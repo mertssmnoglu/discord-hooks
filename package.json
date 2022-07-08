@@ -12,9 +12,21 @@
     "webhook",
     "webhooks"
   ],
-  "author": "mertssmnoglu",
+  "author": {
+    "name": "mertssmnoglu",
+    "email": "mertssmnoglu@gmail.com",
+    "url": "https://mertsismanoglu.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mertssmnoglu/discord-hooks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mertssmnoglu/discord-hooks/issues"
+  },
+  "homepage": "https://github.com/mertssmnoglu/discord-hooks#readme",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "2.6.1"
+    "node-fetch": "^2.6.7"
   }
 }
