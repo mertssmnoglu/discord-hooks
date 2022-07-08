@@ -1,0 +1,20 @@
+{
+  "name": "discord-hooks",
+  "version": "1.0.0",
+  "description": "Basic Discord WebHooks",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [
+    "discord",
+    "discord-hook",
+    "discord-hooks",
+    "discord-webhooks",
+    "webhook",
+    "webhooks"
+  ],
+  "author": "mertssmnoglu",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "2.6.1"
+  }
+}
