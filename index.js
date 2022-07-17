@@ -17,7 +17,7 @@ export default class Webhook {
             },
             body: JSON.stringify(parameters)
         }).then(res => {
-            res.status == 204 ? console.log("Webhook sent") : console.log("Webhook failed");
+            if (res.status !== 204) { throw new Error(res.statusText); }
         })
     }
 }
