@@ -19,5 +19,6 @@ export default class Webhook {
         }).then(res => {
             if (res.status !== 200) { throw new Error(res.statusText); }
         })
+        return this
     }
 }
