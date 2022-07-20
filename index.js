@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 export default class Webhook {
     constructor(webhook_url) {
-        this.webhook_url = webhook_url;
+        this.webhook_url = webhook_url + "?wait=true";
     }
     async send(username, avatar_url, content, embed) {
         var parameters = {
@@ -17,7 +17,7 @@ export default class Webhook {
             },
             body: JSON.stringify(parameters)
         }).then(res => {
-            if (res.status !== 204) { throw new Error(res.statusText); }
+            if (res.status !== 200) { throw new Error(res.statusText); }
         })
     }
 }
