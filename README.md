@@ -50,3 +50,10 @@ webhook.send(
 ]
 )
 ```
+
+- ### destory()
+
+```js
+const webhook = new Webhook("YOUR WEBHOOK URL")
+webhook.destroy().then(console.log("Webhook Destroyed!"));
+```
