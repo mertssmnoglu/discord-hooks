@@ -21,4 +21,16 @@ export default class Webhook {
         })
         return this
     }
+
+    async destroy() {
+        fetch(this.webhook_url, {
+            method: "DELETE",
+            headers: {
+                'Content-type': 'application/json'
+            },
+        }).then(res => {
+            if (res.status !== 204) { throw new Error(res.statusText); }
+        })
+        return this;
+    }
 }
