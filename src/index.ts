@@ -1,4 +1,4 @@
-import { Embed } from "./types/embed"
+import { Embed } from './types/embed'
 
 class Webhook {
   private webhook_url: string
@@ -19,9 +19,9 @@ class Webhook {
     }
 
     await fetch(this.webhook_url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
       },
       body: JSON.stringify(payload),
     }).catch((err) => {
@@ -32,9 +32,9 @@ class Webhook {
 
   async destroy(): Promise<Response | Error> {
     return await fetch(this.webhook_url, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
       },
     }).catch((err) => {
       return new Error(err)
