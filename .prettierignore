@@ -1,0 +1,19 @@
+## directories to ignore
+node_modules
+build
+docs
+
+## file extensions to ignore
+*.png
+*.jpg
+*.svg
+*.gif
+*.ico
+*.svg
+*.txt
+*.md
+
+## files to ignore
+package-lock.json
+yarn.lock
+package.json
