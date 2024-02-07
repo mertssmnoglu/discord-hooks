@@ -1,4 +1,4 @@
-import { Embed } from './types/embed'
+import Embed from './types/Embed'
 
 class Webhook {
   private webhook_url: string
@@ -11,11 +11,16 @@ class Webhook {
   }
 
   async send(message?: string, embeds?: Embed[]): Promise<Webhook> {
+    if (embeds)
+      for (const embed of embeds) {
+        if (Object.keys(embed).length === 0)
+          throw new Error('Invalid embed\nAt least one field is required in embeds.')
+      }
     const payload = {
       username: this.username,
       avatar_url: this.avatar_url,
       content: message,
-      embeds: embeds,
+      embeds: embeds || [],
     }
 
     await fetch(this.webhook_url, {
@@ -24,9 +29,16 @@ class Webhook {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(payload),
-    }).catch((err) => {
-      return new Error(err)
     })
+      .then((res) => {
+        if (res.status === 400) {
+          return new Error(res.statusText)
+        }
+        return res
+      })
+      .catch((err) => {
+        return new Error(err)
+      })
     return this
   }
 
