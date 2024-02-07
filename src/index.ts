@@ -52,6 +52,33 @@ class Webhook {
       return new Error(err)
     })
   }
+
+  getWebhookUrl(): string {
+    return this.webhook_url
+  }
+
+  getUsername(): string {
+    return this.username
+  }
+
+  getAvatarUrl(): string {
+    return this.avatar_url
+  }
+
+  setWebhookUrl(newWebhookUrl: string): Webhook {
+    this.webhook_url = newWebhookUrl
+    return this
+  }
+
+  setUsername(newUsername: string): Webhook {
+    this.username = newUsername
+    return this
+  }
+
+  setAvatarUrl(newAvatarUrl: string): Webhook {
+    this.avatar_url = newAvatarUrl
+    return this
+  }
 }
 
 export default Webhook
