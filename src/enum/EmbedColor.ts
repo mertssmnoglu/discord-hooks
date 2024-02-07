@@ -10,6 +10,8 @@ enum EmbedColor {
   'White' = 0xffffff,
   'Gray' = 0x808080,
   'Brown' = 0x964b00,
+  'Gold' = 0xffd700,
+  'Silver' = 0xc0c0c0,
 }
 
 export default EmbedColor
