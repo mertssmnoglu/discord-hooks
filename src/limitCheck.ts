@@ -1,6 +1,13 @@
 import Embed from './types/Embed'
 import { EmbedFields } from './types/EmbedOptions'
 
+/**
+ * Check if the embed object is within the character limit
+ *
+ * @param embed The embed object to be checked for character limit
+ * @throws Error if the embed object is not within the character limit
+ * @returns true if the embed object is within the character limit. (Boolean)
+ */
 function embedLimitCheck(embed: Embed) {
   if (embed.title && embed.title.length > 256)
     throw new Error('Embed title cannot be longer than 256 characters')
@@ -15,12 +22,19 @@ function embedLimitCheck(embed: Embed) {
   if (embed.footer?.text) sumLength += embed.footer.text.length
   if (embed.author?.name) sumLength += embed.author.name.length
 
-  sumLength += embedFieldsLimitCheck(embed.fields || [])
+  sumLength += embedFieldsLimitCheck(embed.fields)
 
   return sumLength <= embedLimit
 }
 
-function embedFieldsLimitCheck(fields: EmbedFields[]) {
+/**
+ * Check if the embed fields are within the character limit
+ *
+ * @param fields The embed fields to be checked for character limit
+ * @throws Error if the embed fields are not within the character limit
+ * @returns The sum of the length of the fields
+ */
+function embedFieldsLimitCheck(fields: EmbedFields[] = []) {
   const fieldsLimit = 25
   let sumLength = 0
   if (fields.length > fieldsLimit) throw new Error('Embed fields cannot be more than 25')
