@@ -6,6 +6,7 @@ import {
   EmbedProvider,
   EmbedThumbnail,
   EmbedVideo,
+  EmbedColors,
 } from './EmbedOptions'
 
 type Embed = {
@@ -14,7 +15,7 @@ type Embed = {
   description?: string
   url?: string
   timestamp?: Date
-  color?: number
+  color?: number | EmbedColors
   footer?: EmbedFooter
   image?: EmbedImage
   thumbnail?: EmbedThumbnail
